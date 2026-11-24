@@ -150,15 +150,3 @@ Bubble Sort: is mainly useful for demonstrating adjacent swaps and early exit (`
 # Long wait times on large O(n^2) runs:
  Running `5` iterations of quadratic algorithms on `100,000` elements took tens of seconds per algorithm, illustrating the practical impact of O(n^2) complexity at scale.
 
-
-	
-
-	
-
-
-## Overview
-A C program implementing and comparing five sorting algorithms (**Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Merge Sort**, and **Quick Sort**) across different array sizes and input distributions, measuring execution time and memory usage through an interactive menu.
-
-#   S o r t i n g _ H o m e W o r k 
- 
- 
