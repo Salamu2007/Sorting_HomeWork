@@ -1,7 +1,7 @@
-## Title
+# Title
 Sorting Algorithms & Performance Benchmark
 
-## Full Name 
+# Full Name 
 Boukhendeg Mouhammed Islam 
 Hadj Mouhammed Wassim
 
@@ -15,12 +15,18 @@ DD2 Gr1
 C11 (ISO/IEC 9899:2011)
 
 # The Library used
-stdio.h
-stdlib.h
-time.h
+### stdio.h
+Used for standard input/output operations—displaying the interactive menu, sorting results, and comparison tables (`printf`), reading user choices and array sizes (`scanf`), and exporting benchmark results to CSV files (`fopen`, `fprintf`, `fclose`).
+
+### stdlib.h
+Used for dynamic memory allocation (`malloc`, `free`) on the heap to handle large arrays (such as 100,000+ elements) safely, and for generating reproducible random test data (`srand`, `rand` with a fixed seed)
+
+### time.h
+Used to measure execution time via `clock()` and `CLOCKS_PER_SEC` in milliseconds so we can accurately compare algorithm speed across different input sizes
 
 # Instructions to install
 click run the file and will work it
+or write this gcc -Wall -Wextra -O2 src/*.c -I. -o sorting_benchmark
 
 # Algorithm Descriptions & Complexities
 
@@ -117,36 +123,36 @@ CPU: Intel(R) Core(TM) i5-6200U CPU @ 2.30GHz
 Memory: 8.0 GB	Speed:	2133 MHz
 Windows: 11 Pro 22H2
 
-## Critical Analysis
+# Critical Analysis
 
-### Best Algorithm by Scenario
+## Best Algorithm by Scenario
 
-## Large random datasets (`n >= 100,000`):
+### Large random datasets (`n >= 100,000`):
 Quick Sort: is best in practice when average execution time matters most (`21.600 ms` on `100,000` random elements) while keeping memory usage low (`0.3815 MB`).
 
-## *Guaranteed worst-case speed or stability:
+### *Guaranteed worst-case speed or stability:
 Merge Sort: is ideal when consistent O(n \log n) performance is required regardless of input order, provided extra memory (`0.7629 MB`) is acceptable.
 
-## Small or nearly sorted arrays:
+### Small or nearly sorted arrays:
 Insertion Sort: works efficiently on small inputs or nearly sorted data where shifting requires minimal work and recursion overhead is avoided.
 
-## Tight memory / minimal swaps:
+### Tight memory / minimal swaps:
 Selection Sort: uses O(1) extra space and performs at most O(n) swaps, though its O(n^2) comparisons make it slow on large datasets (`15336.600 ms` at `n = 100,000`).
 
-## Basic learning / simple checks:
+### Basic learning / simple checks:
 Bubble Sort: is mainly useful for demonstrating adjacent swaps and early exit (`changed`), as it is the slowest on large inputs (`37724.400 ms` at `n = 100,000`).
 
-### Do Experiments Match Theory?
+## Do Experiments Match Theory?
 **Yes.** On `100,000` random elements, O(n \log n) algorithms (**Quick Sort** at `21.600 ms` and **Merge Sort** at `40.800 ms`) vastly outperform O(n^2) algorithms (`9.18 s` to `37.72 s`), matching theoretical growth rates. **Merge Sort** also reflects its O(n) space complexity by using double the memory (`0.7629 MB` vs. `0.3815 MB`). Note that since **Quick Sort** uses the last element as pivot, its performance degrades toward O(n^2) on already-sorted or reverse-sorted inputs.
 
-### Problems Faced & Solutions
+# Problems Faced & Solutions
 
-# Invalid input handling:
+## Invalid input handling:
  Entering non-numeric characters caused `scanf` input issues; fixed by checking the return value (`!= 1`) and clearing remaining characters with `while (getchar() != '\n');`.
 
-# Accurate multi-run timing:
+## Accurate multi-run timing:
  Reusing the same array across `5` benchmark runs would measure already-sorted data after the first pass; solved by copying the original array before each run and freeing the copy afterward.
 
-# Long wait times on large O(n^2) runs:
+## Long wait times on large O(n^2) runs:
  Running `5` iterations of quadratic algorithms on `100,000` elements took tens of seconds per algorithm, illustrating the practical impact of O(n^2) complexity at scale.
 

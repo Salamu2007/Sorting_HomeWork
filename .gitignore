@@ -1,20 +1,16 @@
+
 *.exe
 *.out
-*.app
 *.o
 *.obj
-*.dSYM/
+build/
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
+
+.vscode/
+
 
 .DS_Store
 Thumbs.db
 desktop.ini
-
-
 *.tmp
 *.log
-*.bak
