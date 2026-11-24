@@ -159,5 +159,6 @@ Bubble Sort: is mainly useful for demonstrating adjacent swaps and early exit (`
 ## Overview
 A C program implementing and comparing five sorting algorithms (**Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Merge Sort**, and **Quick Sort**) across different array sizes and input distributions, measuring execution time and memory usage through an interactive menu.
 
-#   S o r t i n g _ H o m e W o r k  
+#   S o r t i n g _ H o m e W o r k 
+ 
  
